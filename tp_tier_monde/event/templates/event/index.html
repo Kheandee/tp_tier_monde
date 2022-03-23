@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+
+</head>
+<body>
+    {% block contenue %}
+    <!-- <a class="lien_a" href="{% url 'event:login' %}">Connexion</a>
+    <a class="lien_a" href="{% url 'event:register' %}">Inscription</a>
+    <a class="lien_a" href="{% url 'event:profil' %}">Profil</a>
+    <a class="lien_a" href="{% url 'event:logout' %}">Deconnexion</a> -->
+    <h1>Zenith du Tiers monde</h1>
+    <form>
+        {% if event_list %}
+            <ul>
+            {% for event in event_list %}
+                <li>
+                    {{ event.name_event }}<br>
+                    Du <strong>{{ event.begin_date }}</strong> au <strong>{{ event.end_date}}</strong><br>
+                    {{ event.group }}<br>
+                    {{ event.type }}<br>
+                    <input type="submit" value="Réserver">
+                    <input type="submit" value="Acheter"
+                </li>
+            {% endfor %}    
+            </ul>
+        {% else %}
+            <p>Pas d'évènements disponible</p>
+        {% endif %}   
+    </form>
+    {% endblock %}
+</body>
+</html>
+
