@@ -9,10 +9,9 @@
 </head>
 <body>
     {% block contenue %}
-    <a class="lien_a" href="{% url 'event:login' %}">Connexion</a>
-    <a class="lien_a" href="{% url 'event:register' %}">Inscription</a>
-    
-    <a class="lien_a" href="{% url 'event:logout' %}">Deconnexion</a>
+    <a href="{% url 'event:login' %}">Connexion</a>
+    <a href="{% url 'event:register' %}">Inscription</a>
+    <a href="{% url 'event:logout' %}">Deconnexion</a>
     <h1>Zenith du Tiers monde</h1>
     <form>
         {% if event_list %}
@@ -29,9 +28,9 @@
                             <img src="{{ group.pics_group.url }}"><br>
                         {% endif %} 
                     {% endfor %}
-                    
                     <input type="submit" value="Réserver">
                     <input type="submit" value="Acheter">
+                    <a href="{% url 'event:detail' event.id %}">Découvrir</a>
                 </li>
             {% endfor %}    
             </ul>

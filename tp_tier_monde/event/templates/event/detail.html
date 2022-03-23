@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'election/style.css' %}">
+    <title>Détail</title>
+</head>
+<body>
+    <h1>{{ event.name_event }}</h1>
+    Date : Du <strong>{{ event.begin_date }}</strong> au <strong>{{ event.end_date}}</strong><br>
+    Type : {{ event.type }}<br>
+    Nombre de places : {{ event.av_ticket }} places<br>
+    {{ event.description_event }}<br>
+    {% for group in event.group.all %}
+        Groupe : {{ group.name_group }}<br>
+        Catégorie : {{ group.type_group }}<br>
+        {% if group.pics_group %}
+            <img src="{{ group.pics_group.url }}"><br>
+        {% endif %} 
+        {% for artist in group.artist.all %}
+            Artiste : {{ artist.name_artist }}<br>
+            {% if artist.pics_artist %}
+                <img src="{{ artist.pics_artist.url }}"><br>
+            {% endif %} 
+        {% endfor %}
+    {% endfor %}
+    <a href="{% url 'event:index' %}">Accueil</a>
+</body>
+</html>

@@ -61,8 +61,9 @@ class Events(models.Model):
     av_ticket = models.IntegerField(NumberInput, null=True)
     begin_date = models.DateTimeField("Date de dÃ©but d'event")
     end_date = models.DateTimeField("Date de fin d'event")
+    description_event = models.CharField(max_length=255, null=True, blank=True)
     type = models.ForeignKey(EventType, on_delete=models.CASCADE)
-    group = models.ManyToManyField(Groups)
+    group = models.ManyToManyField(Groups,blank=True)
     user = models.ManyToManyField(Users,blank=True)
 
     def __str__(self):

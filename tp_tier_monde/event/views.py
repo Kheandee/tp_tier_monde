@@ -41,9 +41,9 @@ def index(request):
     context = {'event_list': dernier_event}
     return render(request, 'event/index.html', context)
 
-def liste(request, event_id):
+def detail(request, event_id):
     event = get_object_or_404(Events, pk=event_id)
-    return render(request, 'event/liste.html', {'event':event})
+    return render(request, 'event/detail.html', {'event':event})
 
 def my_login(request):
     return render(request, 'event/login.html')
