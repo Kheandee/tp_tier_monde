@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+
+</head>
+<body>
+    <form>
+        {% if event_list %}
+            <ul>
+            {% for event in event_list %}
+                <li>
+                    <a href="{% url 'event:detail' event.id %}">{{ event.event_name }}</a>
+                </li>
+            {% endfor %}    
+            </ul>
+        {% else %}
+            <p>Pas d'évènements disponible</p>
+        {% endif %}   
+    </form>
+</body>
+</html>
