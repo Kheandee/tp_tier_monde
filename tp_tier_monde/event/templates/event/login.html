@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="login" method="post" action="{% url 'event:welcome' %}">
-        {csrf_token %}
+        {% csrf_token %}
         <table class='table table-striped table-sn'>
             <tr>
                 <td>
