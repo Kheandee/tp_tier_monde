@@ -62,7 +62,7 @@ class Events(models.Model):
     begin_date = models.DateTimeField("Date de dÃ©but d'event")
     end_date = models.DateTimeField("Date de fin d'event")
     type = models.ForeignKey(EventType, on_delete=models.CASCADE)
-    group = models.ManyToManyField(Groups,blank=True)
+    group = models.ManyToManyField(Groups)
     user = models.ManyToManyField(Users,blank=True)
 
     def __str__(self):

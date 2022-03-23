@@ -22,9 +22,14 @@
                     {{ event.name_event }}<br>
                     Du <strong>{{ event.begin_date }}</strong> au <strong>{{ event.end_date}}</strong><br>
                     {{ event.type }}<br>
-                    {% for group in event.group_set.all %}
-                        {{ event.group.name_group }}
+
+                    {% for group in event.group.all %}
+                        {{ group.name_group }}<br>
+                        {% if group.pics_group %}
+                            <img src="{{ group.pics_group.url }}"><br>
+                        {% endif %} 
                     {% endfor %}
+                    
                     <input type="submit" value="Réserver">
                     <input type="submit" value="Acheter">
                 </li>

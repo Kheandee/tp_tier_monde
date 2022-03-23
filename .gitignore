@@ -5,3 +5,4 @@ tp_tier_monde/event/__pycache__/__init__.cpython-37.pyc
 tp_tier_monde/event/__pycache__/models.cpython-37.pyc
 tp_tier_monde/tp_tier_monde/__pycache__/settings.cpython-37.pyc
 tp_tier_monde/tp_tier_monde/__pycache__/urls.cpython-37.pyc
+*.pyc
