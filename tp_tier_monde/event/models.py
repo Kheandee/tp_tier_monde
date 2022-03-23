@@ -2,7 +2,7 @@ from django.db import models
 import datetime
 from django.utils import timezone
 from django.forms import NumberInput
-
+from . import views
 # Create your models here.
 
 class Users(models.Model):
@@ -11,8 +11,10 @@ class Users(models.Model):
     mail_user = models.CharField(max_length=50)
     pwd_user = models.CharField(max_length=50)
 
+    # def __str__(self):
+    #     return "(%s, %s)" %(self.name_user ,self.firstname_user)
     def __str__(self):
-        affiche = f'{name_user},{firstname_user}'
+        affiche = f"{self.name_user} {self.firstname_user}"
         return affiche
 
 class EventType(models.Model):
@@ -37,16 +39,23 @@ class Artist(models.Model):
     name_artist = models.CharField(max_length=50)
     skill_artist = models.CharField(max_length=50)
 
+    # def __str__(self):
+    #     return "(%s, %s)" %(self.name_artist, self.skill_artist)
+
     def __str__(self):
-        return self.name_artist
+        affiche = f"{self.name_artist} {self.skill_artist}"
+        return affiche
 
 class Groups(models.Model):
     name_group = models.CharField(max_length=50)
     type_group = models.CharField(max_length=50)
     artist = models.ManyToManyField(Artist)
 
+    # def __str__(self):
+    #     return "(%s, %s)" %(self.name_group, self.type_group)
+
     def __str__(self):
-        affiche = f'{name_group},{type_group}'
+        affiche = f"{self.name_group} {self.type_group}"
         return affiche
 
 class Events(models.Model):
@@ -59,8 +68,7 @@ class Events(models.Model):
     user = models.ManyToManyField(Users,blank=True)
 
     def __str__(self):
-        affiche = f'{name_event},{av_ticket},{begin_date},{end_date}'
-        return affiche
+        return "(%s, %s)" %(self.name_event, self.av_ticket)
 
 class Halls(models.Model):
     name_hall = models.CharField(max_length=50)
@@ -70,5 +78,4 @@ class Halls(models.Model):
     hall_category = models.ManyToManyField(HallCategory,blank=True)
 
     def __str__(self):
-        affiche = f'{name_hall},{size_hall},{hall_category}'
-        return affiche
+        return "(%s, %s, %s)" %(self.name_hall ,self.size_hall ,self.hall_category)
