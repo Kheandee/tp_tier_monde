@@ -21,10 +21,12 @@
                 <li>
                     {{ event.name_event }}<br>
                     Du <strong>{{ event.begin_date }}</strong> au <strong>{{ event.end_date}}</strong><br>
-                    {{ event.group }}<br>
                     {{ event.type }}<br>
+                    {% for group in event.group_set.all %}
+                        {{ event.group.name_group }}
+                    {% endfor %}
                     <input type="submit" value="Réserver">
-                    <input type="submit" value="Acheter"
+                    <input type="submit" value="Acheter">
                 </li>
             {% endfor %}    
             </ul>
