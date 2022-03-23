@@ -34,6 +34,7 @@ def welcome(request):
     else:
         return render(request, 'event/error_log.html')
 
+<<<<<<< Updated upstream
 def index(request):
     dernier_event = Events.objects.order_by('id')
     context = {'event_list': dernier_event}
@@ -42,3 +43,15 @@ def index(request):
 def liste(request, event_id):
     event = get_object_or_404(Events, pk=event_id)
     return render(request, 'event/liste.html', {'event':event})
+=======
+# Kheandee
+def my_login(request):
+    return render(request, 'event/login.html')
+
+def register(request):
+    return render(request, 'event/register.html')
+
+def my_logout(request):
+    logout(request)
+    return render(request, 'event/logout.html')
+>>>>>>> Stashed changes

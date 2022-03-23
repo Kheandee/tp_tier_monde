@@ -8,5 +8,8 @@ urlpatterns = [
    path('register/', views.register, name='register'),
    path('registered/', views.registered, name='registered'),
    path('welcome/', views.welcome, name='welcome'),
+<<<<<<< Updated upstream
    path('<int:event_id>/liste/', views.liste, name='liste'),
+=======
+>>>>>>> Stashed changes
 ]
