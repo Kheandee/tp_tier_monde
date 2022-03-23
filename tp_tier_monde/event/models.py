@@ -1,5 +1,7 @@
 from django.db import models
-from django.forms import CharField, IntegerField, NumberInput
+
+import datetime
+from django.utils import timezone
 
 # Create your models here.
 
