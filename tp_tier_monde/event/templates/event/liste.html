@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des évènements</title>
+</head>
+<body>
+    <h1>Liste des évènements disponibles </h1>
+    <div>
+        {% for event in event.event_set.all %}
+            <li>{{ event.name_event }} <br>
+                <strong>Date :</strong> Du {{ event.begin_date }} au {{ event.end_date}} <br>
+                <strong>Artiste :</strong> {{ event.group }}<br>
+                <strong>Nombre de tickets :</strong>{{ event.av_ticket }}<br>
+            </li><br>
+        {% endfor %}    
+        </ul>
+    </div>
+    <ul>
+    <a href="{% url 'event:index' event.id %}"> Revenir à l'accueil</a>
+</body>
+</html>
