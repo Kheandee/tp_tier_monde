@@ -1,8 +1,7 @@
 from multiprocessing import Event
 from django.http import HttpResponse
-<<<<<<< Updated upstream
-from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User, Events
 from django.contrib.auth import authenticate, login 
 
 # Create your views here.
@@ -34,11 +33,7 @@ def welcome(request):
         return render(request, 'event/welcome.html', context)
     else:
         return render(request, 'event/error_log.html')
-=======
-from django.shortcuts import render, get_object_or_404
-from .models import Events
 
-# Create your views here.
 def index(request):
     dernier_event = Events.objects.order_by('id')
     context = {'event_list': dernier_event}
@@ -47,4 +42,3 @@ def index(request):
 def liste(request, event_id):
     event = get_object_or_404(Events, pk=event_id)
     return render(request, 'event/liste.html', {'event':event})
->>>>>>> Stashed changes
