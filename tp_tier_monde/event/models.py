@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import CharField, IntegerField
+from django.forms import CharField, IntegerField, NumberInput
 
 # Create your models here.
 
@@ -29,16 +29,16 @@ class Groups(models.Model):
 
 class Events(models.Model):
     name_event = models.CharField(max_length=50)
-    av_ticket = models.IntegerField(blank=True, null=True)
+    av_ticket = models.IntegerField(NumberInput)
     begin_date = models.DateTimeField("Date de début d'event")
     end_date = models.DateTimeField("Date de fin d'event")
     type = models.ForeignKey(EventType, on_delete=models.CASCADE)
-    group = models.ManyToManyField(Groups)
-    user = models.ManyToManyField(Users)
+    group = models.ManyToManyField(Groups,blank=True)
+    user = models.ManyToManyField(Users,blank=True)
 
 class Halls(models.Model):
     name_hall = models.CharField(max_length=50)
-    size_hall = models.BigIntegerField(blank=True, null=True)
+    size_hall = models.IntegerField(NumberInput)
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     event = models.ForeignKey(Events, on_delete=models.CASCADE)
-    hall_category = models.ManyToManyField(HallCategory)
+    hall_category = models.ManyToManyField(HallCategory,blank=True)
