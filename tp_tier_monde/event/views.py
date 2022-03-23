@@ -51,3 +51,8 @@ def my_login(request):
 def my_logout(request):
     logout(request)
     return render(request, 'event/logout.html')
+
+def new_password(newpwd):
+    newpwd = User.objects.get(username ='new_password')
+    newpwd.set_password('new_password')
+    newpwd.save()
