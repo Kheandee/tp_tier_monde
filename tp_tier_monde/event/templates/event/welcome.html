@@ -1,0 +1,9 @@
+{% extends "event/index.html" %}
+<!-- {% load static %} -->
+{% block contenue %}
+
+<h1>Bienvenue {{user.username}} !</h1>
+<p>Connexion réussi</p>
+<a href="{% url 'event:index' %}">Page d'acceuil</a>
+
+{% endblock %}
